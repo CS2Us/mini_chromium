@@ -1,0 +1,18 @@
+current_os = host_os
+current_cpu = host_cpu
+is_debug = true
+set_default_toolchain("//build/config:msvc_toolchain_$current_cpu")
+
+default_compiler_configs = ["//build/config:default"]
+if (is_debug) {
+  default_compiler_configs += [ "//build/config:debug" ]
+} else {
+  default_compiler_configs += [ "//build/config:release" ]
+}
+
+set_defaults("static_library") {
+  configs = default_compiler_configs
+}
+set_defaults("source_set") {
+  configs = default_compiler_configs
+}

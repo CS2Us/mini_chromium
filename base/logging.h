@@ -78,7 +78,7 @@ static inline int GetMinLogLevel() {
 }
 
 static inline int GetVlogLevel(const char*) {
-  return std::numeric_limits<int>::max();
+  return LOG_INFO;
 }
 
 #if BUILDFLAG(IS_WIN)
